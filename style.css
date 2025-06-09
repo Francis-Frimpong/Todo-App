@@ -1,0 +1,51 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  position: relative;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.bg-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.bg-container {
+  width: 100%;
+  min-height: 510.5px; /* adjust as you need */
+  background-color: hsl(235, 21%, 11%);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.todo-container {
+  width: 520px;
+  height: 200px;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+}
+
+.heading {
+  display: flex;
+  align-items: center; /* Vertically centers h1 and img */
+  justify-content: space-between; /* Pushes them to opposite ends (optional) */
+  padding: 10px 20px; /* Optional padding */
+}
+
+.heading h1 {
+  font-size: 34px; /* Adjust size as you wish */
+  letter-spacing: 12px;
+  color: hsl(0, 0%, 98%); /* Example color */
+  margin: 0; /* Remove default margin */
+}
+
+.heading img {
+  width: 24px; /* Control the icon size */
+  height: 24px;
+  cursor: pointer; /* Optional: make the image clickable */
+}
