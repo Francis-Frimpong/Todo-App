@@ -58,7 +58,8 @@ html {
 }
 
 .heading,
-.todo-input {
+.todo-input,
+.todo-list {
   width: 100%;
   box-sizing: border-box;
 }
@@ -80,4 +81,29 @@ html {
   position: absolute;
   top: 6em;
   left: 1.5em;
+}
+
+.todo-list {
+  background-color: hsl(235, 24%, 19%);
+  height: 200px;
+  margin-top: 2em;
+}
+
+.tabs {
+  display: flex;
+  padding: 2em 2em;
+  font-size: 0.8rem;
+  color: hsl(233, 14%, 35%);
+  cursor: pointer;
+}
+
+.active-tab {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 40%;
+}
+
+.active-button {
+  color: hsl(220, 98%, 61%);
 }
