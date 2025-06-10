@@ -87,6 +87,7 @@ html {
   background-color: hsl(235, 24%, 19%);
   height: 200px;
   margin-top: 2em;
+  border-radius: 5px;
 }
 
 .tabs {
@@ -106,4 +107,66 @@ html {
 
 .active-button {
   color: hsl(220, 98%, 61%);
+}
+
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+}
+.list-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1em 1.5em;
+}
+
+.list-checkbox > .text {
+  color: hsl(233, 14%, 35%);
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-left: 0.7em;
+  text-decoration: line-through;
+}
+
+.custom-checkbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  border: 1px solid hsl(233, 14%, 35%);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+/* When checkbox is checked */
+.custom-checkbox input:checked + .checkmark {
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
+/* Optional: Add a check icon (tick mark) */
+.custom-checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 8px;
+  height: 16px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
