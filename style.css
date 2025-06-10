@@ -23,18 +23,11 @@ html {
 }
 
 .todo-container {
-  width: 520px;
+  width: 500px;
   height: 200px;
   position: absolute;
   top: 10%;
   left: 35%;
-}
-
-.heading {
-  display: flex;
-  align-items: center; /* Vertically centers h1 and img */
-  justify-content: space-between; /* Pushes them to opposite ends (optional) */
-  padding: 10px 20px; /* Optional padding */
 }
 
 .heading h1 {
@@ -48,4 +41,43 @@ html {
   width: 24px; /* Control the icon size */
   height: 24px;
   cursor: pointer; /* Optional: make the image clickable */
+}
+
+.todo-input {
+  background-color: hsl(235, 24%, 19%);
+  color: white;
+  border: none;
+  outline: none;
+  margin-top: 3em;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  align-items: center;
+  height: 30%;
+  text-indent: 75px;
+}
+
+.heading,
+.todo-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-input::placeholder {
+  color: hsl(233, 14%, 35%);
+}
+.circle {
+  width: 30px;
+  height: 30px;
+  border: 1px solid hsl(233, 14%, 35%);
+  border-radius: 50%;
+  position: absolute;
+  top: 6em;
+  left: 1.5em;
 }
