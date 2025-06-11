@@ -85,9 +85,9 @@ html {
 
 .todo-list {
   background-color: hsl(235, 24%, 19%);
-  height: 200px;
   margin-top: 2em;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
 .tabs {
