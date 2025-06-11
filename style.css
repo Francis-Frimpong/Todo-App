@@ -125,11 +125,10 @@ html {
 }
 
 .list-checkbox > .text {
-  color: hsl(233, 14%, 35%);
+  color: hsl(0, 0%, 98%);
   font-size: 1.2rem;
   line-height: 1;
   margin-left: 0.7em;
-  text-decoration: line-through;
 }
 
 .custom-checkbox input {
