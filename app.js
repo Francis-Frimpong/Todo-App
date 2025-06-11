@@ -5,6 +5,7 @@ textInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     // Creating the list elements
     const list = document.createElement("div");
+    list.setAttribute("draggable", "true");
     list.classList.add("list");
 
     const listCheckBox = document.createElement("div");
@@ -37,5 +38,12 @@ textInput.addEventListener("keydown", (event) => {
 
     //clear the input field when event fires
     textInput.value = "";
+  }
+});
+
+listContainer.addEventListener("click", (e) => {
+  const listItem = e.target.closest(".list");
+  if (listItem) {
+    console.log(listItem);
   }
 });
