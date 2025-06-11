@@ -33,6 +33,36 @@ textInput.addEventListener("keydown", (event) => {
     list.appendChild(listCheckBox);
     list.appendChild(line);
 
+    // DRAG START
+    list.addEventListener("dragstart", (e) => {
+      draggedItem = list;
+    });
+
+    // DRAG OVER
+    list.addEventListener("dragover", (e) => {
+      e.preventDefault(); // must prevent default to allow drop
+    });
+
+    // DROP
+    list.addEventListener("drop", (e) => {
+      e.preventDefault();
+      if (draggedItem && draggedItem !== list) {
+        // Swap the items
+        const allItems = Array.from(listContainer.children);
+        console.log(allItems);
+        const draggedIndex = allItems.indexOf(draggedItem);
+        console.log(draggedIndex);
+        const targetIndex = allItems.indexOf(list);
+        console.log(targetIndex);
+
+        if (draggedIndex < targetIndex) {
+          listContainer.insertBefore(draggedItem, list.nextSibling);
+        } else {
+          listContainer.insertBefore(draggedItem, list);
+        }
+      }
+    });
+
     // adding the list element to it container when keydown event fires
     listContainer.appendChild(list);
 
@@ -44,6 +74,15 @@ textInput.addEventListener("keydown", (event) => {
 listContainer.addEventListener("click", (e) => {
   const listItem = e.target.closest(".list");
   if (listItem) {
-    console.log(listItem);
+    listItem.addEventListener("dragstart", (e) => {
+      console.log(e);
+    });
+
+    listItem.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+    listItem.addEventListener("drop", (e) => {
+      e.preventDefault();
+    });
   }
 });
