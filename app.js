@@ -20,11 +20,8 @@ function dragAndDrop(list) {
       // Swap the items
       // Array.from()turns the children of the list container into an array
       const allItems = Array.from(listContainer.children);
-      console.log(allItems);
       const draggedIndex = allItems.indexOf(draggedItem);
-      console.log(draggedIndex);
       const targetIndex = allItems.indexOf(list);
-      console.log(targetIndex);
 
       if (draggedIndex < targetIndex) {
         listContainer.insertBefore(draggedItem, list.nextSibling);
@@ -32,6 +29,23 @@ function dragAndDrop(list) {
         listContainer.insertBefore(draggedItem, list);
       }
     }
+  });
+}
+
+// Checkbox functionality
+function checkBoxFunc(checkboxs) {
+  checkboxs.forEach((checkbox) => {
+    checkbox.addEventListener("change", (e) => {
+      const parent = checkbox.closest(".list-checkbox");
+      const textElement = parent.querySelector(".text");
+      if (checkbox.checked) {
+        textElement.style.textDecoration = "line-through";
+        textElement.style.color = "hsl(233, 14%, 35%)";
+      } else {
+        textElement.style.textDecoration = "none";
+        textElement.style.color = "hsl(0, 0%, 98%)";
+      }
+    });
   });
 }
 
@@ -50,6 +64,7 @@ function createListItem() {
 
   const checkBox = document.createElement("input");
   checkBox.setAttribute("type", "checkbox");
+  checkBox.setAttribute("name", "checkbox");
   const checkMark = document.createElement("span");
   checkMark.classList.add("checkmark");
 
@@ -76,6 +91,10 @@ function createListItem() {
 
   //clear the input field when event fires
   textInput.value = "";
+
+  // figure out what is wrong with this tomorrow God willing.
+  const checkboxs = document.querySelectorAll("input[type = checkbox]");
+  checkBoxFunc(checkboxs);
 }
 
 // function to handle keydown event
