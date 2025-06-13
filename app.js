@@ -60,6 +60,7 @@ function createListItem() {
   const line = document.createElement("div");
   line.classList.add("line");
 
+  // Appending element into it apropriate divs
   customCheckBox.appendChild(checkBox);
   customCheckBox.appendChild(checkMark);
   listCheckBox.appendChild(customCheckBox);
