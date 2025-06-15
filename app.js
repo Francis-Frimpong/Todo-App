@@ -93,7 +93,6 @@ function createListItem() {
   //clear the input field when event fires
   textInput.value = "";
 
-  // figure out what is wrong with this tomorrow God willing.
   const checkboxs = document.querySelectorAll("input[type = checkbox]");
   checkBoxFunc(checkboxs);
 }
@@ -108,5 +107,10 @@ function handleKeyDownEvent(event) {
 textInput.addEventListener("keydown", handleKeyDownEvent);
 activeBtn.addEventListener("click", () => {
   let convertToArray = [...listContainer.children];
-  console.log(convertToArray);
+  convertToArray.forEach((listItem) => {
+    let checkedItem = listItem.querySelector("input[type = checkbox]");
+    if (checkedItem.checked) {
+      listItem.style.display = "none";
+    }
+  });
 });
