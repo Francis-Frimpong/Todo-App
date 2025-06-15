@@ -1,5 +1,6 @@
 const textInput = document.querySelector(".todo-input");
 const listContainer = document.querySelector(".list-container");
+const activeBtn = document.querySelector(".active");
 
 // Darg and drop functionality
 function dragAndDrop(list) {
@@ -105,3 +106,7 @@ function handleKeyDownEvent(event) {
 }
 
 textInput.addEventListener("keydown", handleKeyDownEvent);
+activeBtn.addEventListener("click", () => {
+  let convertToArray = [...listContainer.children];
+  console.log(convertToArray);
+});
