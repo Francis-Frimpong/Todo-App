@@ -119,7 +119,7 @@ tabSwitch.forEach((tab) => {
   });
 });
 
-activeTabs.addEventListener("click", (e) => {
+function switchTab(e) {
   let convertToArray = [...listContainer.children];
   convertToArray.forEach((item) => {
     item.style.display = "block";
@@ -144,7 +144,9 @@ activeTabs.addEventListener("click", (e) => {
       listItem.style.display = "block";
     });
   }
-});
+}
+
+activeTabs.addEventListener("click", switchTab);
 textInput.addEventListener("keydown", handleKeyDownEvent);
 // activeBtn.addEventListener("click", () => {
 //   let convertToArray = [...listContainer.children];
