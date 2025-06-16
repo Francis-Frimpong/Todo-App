@@ -148,22 +148,3 @@ function switchTab(e) {
 
 activeTabs.addEventListener("click", switchTab);
 textInput.addEventListener("keydown", handleKeyDownEvent);
-// activeBtn.addEventListener("click", () => {
-//   let convertToArray = [...listContainer.children];
-//   convertToArray.forEach((listItem) => {
-//     let checkedItem = listItem.querySelector("input[type = checkbox]");
-//     if (checkedItem.checked) {
-//       listItem.style.display = "none";
-//     }
-//   });
-// });
-
-// completedListBtn.addEventListener("click", () => {
-//   let convertToArray = [...listContainer.children];
-//   convertToArray.forEach((listItem) => {
-//     let checkedItem = listItem.querySelector("input[type = checkbox]");
-//     if (!checkedItem.checked) {
-//       listItem.style.display = "none";
-//     }
-//   });
-// });
