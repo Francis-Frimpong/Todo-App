@@ -1,6 +1,8 @@
 const textInput = document.querySelector(".todo-input");
 const listContainer = document.querySelector(".list-container");
 const activeBtn = document.querySelector(".active");
+const completedListBtn = document.querySelector(".completed");
+const activeTabs = document.querySelectorAll(".active-button");
 
 // Darg and drop functionality
 function dragAndDrop(list) {
@@ -104,6 +106,19 @@ function handleKeyDownEvent(event) {
   }
 }
 
+// JavaScript
+const tabSwitch = document.querySelectorAll(".tabSwitch");
+
+tabSwitch.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    // Remove 'active' class from all tabs
+    tabSwitch.forEach((t) => t.classList.remove("active-button"));
+
+    // Add 'active' class to the clicked tab
+    tab.classList.add("active-button");
+  });
+});
+
 textInput.addEventListener("keydown", handleKeyDownEvent);
 activeBtn.addEventListener("click", () => {
   let convertToArray = [...listContainer.children];
@@ -114,3 +129,17 @@ activeBtn.addEventListener("click", () => {
     }
   });
 });
+
+completedListBtn.addEventListener("click", () => {
+  let convertToArray = [...listContainer.children];
+  convertToArray.filter((listItem) => {
+    let checkedItem = listItem.querySelector("input[type = checkbox]");
+
+    listContainer.innerHTML = checkedItem.checked;
+  });
+});
+
+// const checkedItems = convertToArray.filter((listItem) => {
+//   let checkedItem = listItem.querySelector("input[type=checkbox]");
+//   return checkedItem.checked;
+// });
