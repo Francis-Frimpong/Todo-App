@@ -2,7 +2,7 @@ const textInput = document.querySelector(".todo-input");
 const listContainer = document.querySelector(".list-container");
 const activeBtn = document.querySelector(".active");
 const completedListBtn = document.querySelector(".completed");
-const activeTabs = document.querySelectorAll(".active-button");
+const activeTabs = document.querySelector(".active-tab");
 
 // Darg and drop functionality
 function dragAndDrop(list) {
@@ -119,27 +119,49 @@ tabSwitch.forEach((tab) => {
   });
 });
 
+activeTabs.addEventListener("click", (e) => {
+  let convertToArray = [...listContainer.children];
+  convertToArray.forEach((item) => {
+    item.style.display = "block";
+  });
+
+  if (e.target.classList.contains("active")) {
+    convertToArray.forEach((listItem) => {
+      let activeItem = listItem.querySelector("input[type = checkbox]");
+      if (activeItem.checked) {
+        listItem.style.display = "none";
+      }
+    });
+  } else if (e.target.classList.contains("completed")) {
+    convertToArray.forEach((listItem) => {
+      let checkedItem = listItem.querySelector("input[type = checkbox]");
+      if (!checkedItem.checked) {
+        listItem.style.display = "none";
+      }
+    });
+  } else if (e.target.classList.contains("all")) {
+    convertToArray.forEach((listItem) => {
+      listItem.style.display = "block";
+    });
+  }
+});
 textInput.addEventListener("keydown", handleKeyDownEvent);
-activeBtn.addEventListener("click", () => {
-  let convertToArray = [...listContainer.children];
-  convertToArray.forEach((listItem) => {
-    let checkedItem = listItem.querySelector("input[type = checkbox]");
-    if (checkedItem.checked) {
-      listItem.style.display = "none";
-    }
-  });
-});
+// activeBtn.addEventListener("click", () => {
+//   let convertToArray = [...listContainer.children];
+//   convertToArray.forEach((listItem) => {
+//     let checkedItem = listItem.querySelector("input[type = checkbox]");
+//     if (checkedItem.checked) {
+//       listItem.style.display = "none";
+//     }
+//   });
+// });
 
-completedListBtn.addEventListener("click", () => {
-  let convertToArray = [...listContainer.children];
-  convertToArray.filter((listItem) => {
-    let checkedItem = listItem.querySelector("input[type = checkbox]");
-
-    listContainer.innerHTML = checkedItem.checked;
-  });
-});
-
-// const checkedItems = convertToArray.filter((listItem) => {
-//   let checkedItem = listItem.querySelector("input[type=checkbox]");
-//   return checkedItem.checked;
+// completedListBtn.addEventListener("click", () => {
+//   let convertToArray = [...listContainer.children];
+//   convertToArray.forEach((listItem) => {
+//     let checkedItem = listItem.querySelector("input[type = checkbox]");
+//     if (!checkedItem.checked) {
+//       listItem.style.display = "none";
+//     }
+//   });
 // });
