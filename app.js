@@ -3,6 +3,8 @@ const listContainer = document.querySelector(".list-container");
 const activeBtn = document.querySelector(".active");
 const completedListBtn = document.querySelector(".completed");
 const activeTabs = document.querySelector(".active-tab");
+const parentTabsContainer = document.querySelector(".tabs");
+const clearCompleted = parentTabsContainer.querySelector(".clear");
 
 // Darg and drop functionality
 function dragAndDrop(list) {
@@ -119,6 +121,7 @@ tabSwitch.forEach((tab) => {
   });
 });
 
+// Tab function
 function switchTab(e) {
   let convertToArray = [...listContainer.children];
   convertToArray.forEach((item) => {
@@ -146,5 +149,16 @@ function switchTab(e) {
   }
 }
 
+// Clear completed or checked items
+function clearCompletedItem() {
+  let convertToArray = [...listContainer.children];
+  convertToArray.forEach((listItem) => {
+    let checkedItem = listItem.querySelector("input[type = checkbox]");
+    if (checkedItem.checked) {
+      listItem.remove();
+    }
+  });
+}
 activeTabs.addEventListener("click", switchTab);
 textInput.addEventListener("keydown", handleKeyDownEvent);
+clearCompleted.addEventListener("click", clearCompletedItem);
