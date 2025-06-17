@@ -5,6 +5,11 @@ const completedListBtn = document.querySelector(".completed");
 const activeTabs = document.querySelector(".active-tab");
 const parentTabsContainer = document.querySelector(".tabs");
 const clearCompleted = parentTabsContainer.querySelector(".clear");
+const itemLeft = document.querySelector(".item-left");
+
+// track todo length
+let countTodos = 0;
+itemLeft.textContent = `${countTodos} items left`;
 
 // Darg and drop functionality
 function dragAndDrop(list) {
@@ -93,6 +98,10 @@ function createListItem() {
 
   // adding the list element to it container when keydown event fires
   listContainer.appendChild(list);
+  let getLength = [...listContainer.children];
+
+  countTodos = getLength.length;
+  itemLeft.textContent = `${countTodos} items left`;
 
   //clear the input field when event fires
   textInput.value = "";
@@ -159,6 +168,19 @@ function clearCompletedItem() {
     }
   });
 }
+
+// let todos = Array.from(listContainer.children);
+// console.log(todos);
+// let countTodos = todos.length;
+// itemLeft.textContent = `${countTodos} items left`;
+
+// todos.forEach((list) => {
+//   if (todos.length > 0) {
+//     countTodos += todos.length;
+//     itemLeft.textContent = `${countTodos} items left`;
+//   }
+// });
+
 activeTabs.addEventListener("click", switchTab);
 textInput.addEventListener("keydown", handleKeyDownEvent);
 clearCompleted.addEventListener("click", clearCompletedItem);
