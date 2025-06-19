@@ -41,6 +41,20 @@ function dragAndDrop(list) {
     }
   });
 }
+// update counter for unchecked boxes
+function updateCounter() {
+  const allCheckboxes = document.querySelectorAll("input[type=checkbox]");
+  let uncheckedCount = 0;
+
+  allCheckboxes.forEach((checkbox) => {
+    if (!checkbox.checked) {
+      uncheckedCount++;
+    }
+  });
+
+  countTodos = uncheckedCount; // Always accurate
+  itemLeft.textContent = `${countTodos} items left`;
+}
 
 // Checkbox functionality
 function checkBoxFunc(checkboxs) {
@@ -55,6 +69,8 @@ function checkBoxFunc(checkboxs) {
         textElement.style.textDecoration = "none";
         textElement.style.color = "hsl(0, 0%, 98%)";
       }
+
+      updateCounter();
     });
   });
 }
@@ -100,8 +116,13 @@ function createListItem() {
   listContainer.appendChild(list);
   let getLength = [...listContainer.children];
 
-  countTodos = getLength.length;
-  itemLeft.textContent = `${countTodos} items left`;
+  if (getLength.length > 0) {
+    countTodos++;
+    itemLeft.textContent = `${countTodos} items left`;
+  } else {
+    countTodos--;
+    itemLeft.textContent = `${countTodos} items left`;
+  }
 
   //clear the input field when event fires
   textInput.value = "";
@@ -165,21 +186,11 @@ function clearCompletedItem() {
     let checkedItem = listItem.querySelector("input[type = checkbox]");
     if (checkedItem.checked) {
       listItem.remove();
+      countTodos--;
+      itemLeft.textContent = `${countTodos} items left`;
     }
   });
 }
-
-// let todos = Array.from(listContainer.children);
-// console.log(todos);
-// let countTodos = todos.length;
-// itemLeft.textContent = `${countTodos} items left`;
-
-// todos.forEach((list) => {
-//   if (todos.length > 0) {
-//     countTodos += todos.length;
-//     itemLeft.textContent = `${countTodos} items left`;
-//   }
-// });
 
 activeTabs.addEventListener("click", switchTab);
 textInput.addEventListener("keydown", handleKeyDownEvent);
