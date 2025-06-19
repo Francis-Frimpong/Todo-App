@@ -175,3 +175,17 @@ html {
   height: 2px;
   background-color: hsl(233, 14%, 35%);
 }
+
+.list-container {
+  max-height: 200px; /* Adjust depending on your list item height */
+  overflow-y: auto; /* Enables vertical scrollbar when needed */
+}
+
+.list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background-color: hsl(233, 14%, 35%);
+  border-radius: 4px;
+}
