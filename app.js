@@ -6,6 +6,7 @@ const activeTabs = document.querySelector(".active-tab");
 const parentTabsContainer = document.querySelector(".tabs");
 const clearCompleted = parentTabsContainer.querySelector(".clear");
 const itemLeft = document.querySelector(".item-left");
+const deleteList = document.querySelector(".delete");
 
 // track todo length
 let countTodos = 0;
@@ -75,6 +76,16 @@ function checkBoxFunc(checkboxs) {
   });
 }
 
+// Delete list item
+function deleteListItem(list) {
+  list.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete")) {
+      list.remove();
+      updateCounter();
+    }
+  });
+}
+
 // create list item
 function createListItem() {
   // Creating the list elements
@@ -133,10 +144,14 @@ function createListItem() {
   textInput.value = "";
 
   const checkboxs = document.querySelectorAll("input[type = checkbox]");
+
+  // checkbox function call
   checkBoxFunc(checkboxs);
+  // delete item function call
+  deleteListItem(list);
 }
 
-// function to handle keydown event
+// function to handle keydown event which creates the element
 function handleKeyDownEvent(event) {
   if (event.key === "Enter") {
     createListItem();
