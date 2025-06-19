@@ -98,6 +98,10 @@ function createListItem() {
   text.classList.add("text");
   text.textContent = `${textInput.value}`;
 
+  const crossIcon = document.createElement("img");
+  crossIcon.src = "images/icon-cross.svg";
+  crossIcon.classList.add("delete");
+
   const line = document.createElement("div");
   line.classList.add("line");
 
@@ -105,7 +109,8 @@ function createListItem() {
   customCheckBox.appendChild(checkBox);
   customCheckBox.appendChild(checkMark);
   listCheckBox.appendChild(customCheckBox);
-  listCheckBox.append(text);
+  listCheckBox.appendChild(text);
+  listCheckBox.appendChild(crossIcon);
   list.appendChild(listCheckBox);
   list.appendChild(line);
 
