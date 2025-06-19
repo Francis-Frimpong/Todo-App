@@ -177,7 +177,7 @@ html {
 }
 
 .list-container {
-  max-height: 200px; /* Adjust depending on your list item height */
+  max-height: 300px; /* Adjust depending on your list item height */
   overflow-y: auto; /* Enables vertical scrollbar when needed */
 }
 
