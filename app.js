@@ -155,6 +155,8 @@ function createListItem() {
 function handleKeyDownEvent(event) {
   if (event.key === "Enter") {
     createListItem();
+    // display todo list container after list is created
+    document.querySelector(".todo-list").style.display = "block";
   }
 }
 
