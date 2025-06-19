@@ -190,6 +190,7 @@ function clearCompletedItem() {
       itemLeft.textContent = `${countTodos} items left`;
     }
   });
+  updateCounter();
 }
 
 activeTabs.addEventListener("click", switchTab);
