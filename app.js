@@ -169,7 +169,7 @@ function handleKeyDownEvent(event) {
   }
 }
 
-// JavaScript
+// Active tabs functionality
 const tabSwitch = document.querySelectorAll(".tabSwitch");
 
 tabSwitch.forEach((tab) => {
