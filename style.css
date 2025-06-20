@@ -88,6 +88,9 @@ html {
   margin-top: 2em;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+.displayList {
   display: none;
 }
 
