@@ -82,8 +82,12 @@ function deleteListItem(list) {
     if (e.target.classList.contains("delete")) {
       list.remove();
       updateCounter();
-      activeTabs.classList.add("displayList");
-      document.querySelector(".todo-list").classList.add("displayList");
+
+      if (listContainer.children.length === 0) {
+        document.querySelector(".todo-list").classList.add("displayList"); // Hide
+      } else {
+        document.querySelector(".todo-list").classList.remove("displayList"); // Show
+      }
     }
   });
 }
@@ -157,9 +161,11 @@ function createListItem() {
 function handleKeyDownEvent(event) {
   if (event.key === "Enter") {
     createListItem();
-    // display todo list container after list is created
-    document.querySelector(".todo-list").classList.remove("displayList");
-    activeTabs.classList.remove("displayList");
+    if (listContainer.children.length === 0) {
+      document.querySelector(".todo-list").classList.add("displayList"); // Hide
+    } else {
+      document.querySelector(".todo-list").classList.remove("displayList"); // Show
+    }
   }
 }
 
@@ -216,8 +222,11 @@ function clearCompletedItem() {
     }
   });
   updateCounter();
-  activeTabs.classList.add("displayList");
-  document.querySelector(".todo-list").classList.add("displayList");
+  if (listContainer.children.length === 0) {
+    document.querySelector(".todo-list").classList.add("displayList"); // Hide
+  } else {
+    document.querySelector(".todo-list").classList.remove("displayList"); // Show
+  }
 }
 
 activeTabs.addEventListener("click", switchTab);
