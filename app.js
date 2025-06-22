@@ -229,6 +229,32 @@ function clearCompletedItem() {
   }
 }
 
+const toggleButton = document.querySelector(".sun-icon");
+
+// Check Local Storage on page load
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+  document.body.classList.add("light");
+  toggleButton.src = "images/icon-moon.svg";
+} else {
+  document.body.classList.remove("light");
+  toggleButton.src = "images/icon-sun.svg";
+}
+
+// Toggle on click and save to Local Storage
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  if (document.body.classList.contains("light")) {
+    toggleButton.src = "images/icon-moon.svg"; // Light mode => moon icon
+    localStorage.setItem("theme", "light");
+  } else {
+    toggleButton.src = "images/icon-sun.svg"; // Dark mode => sun icon
+    localStorage.setItem("theme", "dark");
+  }
+});
+
 activeTabs.addEventListener("click", switchTab);
 textInput.addEventListener("keydown", handleKeyDownEvent);
 clearCompleted.addEventListener("click", clearCompletedItem);

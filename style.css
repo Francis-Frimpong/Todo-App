@@ -197,3 +197,51 @@ html {
   background-color: hsl(233, 14%, 35%);
   border-radius: 4px;
 }
+
+/* light theme switcher */
+body.light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 19%, 35%);
+}
+
+/* Light Theme Specific Styles */
+body.light .bg-container {
+  background-color: hsl(0, 0%, 98%);
+}
+
+body.light .todo-input {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 19%, 35%);
+}
+
+body.light .todo-input::placeholder {
+  color: hsl(235, 19%, 35%);
+}
+
+body.light .circle {
+  border: 1px solid hsl(235, 19%, 35%);
+}
+
+body.light .todo-list {
+  background-color: hsl(0, 0%, 98%);
+}
+
+body.light .tabs {
+  color: hsl(235, 19%, 35%);
+}
+
+body.light .list-checkbox > .text {
+  color: hsl(235, 19%, 35%);
+}
+
+body.light .checkmark {
+  border: 1px solid hsl(235, 19%, 35%);
+}
+
+body.light .line {
+  background-color: hsl(235, 19%, 35%);
+}
+
+body.light .list-container::-webkit-scrollbar-thumb {
+  background-color: hsl(235, 19%, 35%);
+}
