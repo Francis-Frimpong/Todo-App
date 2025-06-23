@@ -85,8 +85,10 @@ function deleteListItem(list) {
 
       if (listContainer.children.length === 0) {
         document.querySelector(".todo-list").classList.add("displayList"); // Hide
+        document.querySelector(".dd-banner").classList.add("displayList"); // Hide
       } else {
         document.querySelector(".todo-list").classList.remove("displayList"); // Show
+        document.querySelector(".dd-banner").classList.remove("displayList"); // Show
       }
     }
   });
@@ -163,8 +165,10 @@ function handleKeyDownEvent(event) {
     createListItem();
     if (listContainer.children.length === 0) {
       document.querySelector(".todo-list").classList.add("displayList"); // Hide
+      document.querySelector(".dd-banner").classList.add("displayList"); // Hide
     } else {
       document.querySelector(".todo-list").classList.remove("displayList"); // Show
+      document.querySelector(".dd-banner").classList.remove("displayList"); // Show
     }
   }
 }
@@ -224,8 +228,10 @@ function clearCompletedItem() {
   updateCounter();
   if (listContainer.children.length === 0) {
     document.querySelector(".todo-list").classList.add("displayList"); // Hide
+    document.querySelector(".dd-banner").classList.add("displayList"); // Hide
   } else {
     document.querySelector(".todo-list").classList.remove("displayList"); // Show
+    document.querySelector(".dd-banner").classList.remove("displayList"); // Show
   }
 }
 
