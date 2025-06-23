@@ -235,6 +235,7 @@ function clearCompletedItem() {
   }
 }
 
+// Start of Theme switch function
 const toggleButton = document.querySelector(".sun-icon");
 
 // Check Local Storage on page load
@@ -260,6 +261,7 @@ toggleButton.addEventListener("click", () => {
     localStorage.setItem("theme", "dark");
   }
 });
+// End of Theme switch function
 
 activeTabs.addEventListener("click", switchTab);
 textInput.addEventListener("keydown", handleKeyDownEvent);
