@@ -60,15 +60,16 @@ function updateCounter() {
 // Checkbox functionality
 function checkBoxFunc(checkboxs) {
   checkboxs.forEach((checkbox) => {
-    checkbox.addEventListener("change", (e) => {
+    checkbox.addEventListener("change", () => {
       const parent = checkbox.closest(".list-checkbox");
       const textElement = parent.querySelector(".text");
+
       if (checkbox.checked) {
-        textElement.style.textDecoration = "line-through";
-        textElement.style.color = "hsl(233, 14%, 35%)";
+        textElement.classList.add("completed-text");
+        textElement.classList.remove("active-text");
       } else {
-        textElement.style.textDecoration = "none";
-        textElement.style.color = "hsl(0, 0%, 98%)";
+        textElement.classList.remove("completed-text");
+        textElement.classList.add("active-text");
       }
 
       updateCounter();

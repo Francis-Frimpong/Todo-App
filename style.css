@@ -216,6 +216,27 @@ html {
   border-radius: 4px;
 }
 
+/* Default (Active) State for Dark Theme */
+.text.active-text {
+  text-decoration: none;
+  color: hsl(0, 0%, 98%); /* Light text in dark theme */
+}
+
+/* Completed State for Dark Theme */
+.text.completed-text {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
+}
+
+/* Light Theme Override */
+body.light .list-checkbox > .text.active-text {
+  color: hsl(235, 19%, 35%);
+}
+
+body.light .list-checkbox > .text.completed-text {
+  color: hsl(233, 11%, 84%);
+}
+
 /* light theme switcher */
 body.light {
   background-color: hsl(0, 0%, 98%);
