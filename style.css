@@ -55,6 +55,7 @@ html {
   align-items: center;
   height: 30%;
   text-indent: 75px;
+  caret-color: hsl(220, 98%, 61%);
 }
 
 .heading,
@@ -135,9 +136,16 @@ html {
   line-height: 1;
   margin-left: 0.7em;
 }
+
+.list-checkbox > .text:hover {
+  cursor: pointer;
+}
 .delete {
   position: absolute;
   left: 28em;
+}
+.delete:hover {
+  cursor: pointer;
 }
 .custom-checkbox input {
   opacity: 0;
